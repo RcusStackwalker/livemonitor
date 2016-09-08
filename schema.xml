@@ -1,0 +1,391 @@
+<doc>
+<item ptr="804fbf" bitlength="8">
+    <name>Knock Sum</name>
+</item>
+<item ptr="80407c" bitlength="16" multiplier="0.000076293945">
+    <name>Knock Integrator Noise</name>
+    <suffix>V</suffix>
+</item>
+<item ptr="804fc5" bitlength="8" multiplier="0.01953125">
+    <name>Knock Signal</name>
+    <suffix>V</suffix>
+</item>
+<item ptr="804fc7" bitlength="8" multiplier="0.01953125">
+    <name>Knock Base</name>
+    <suffix>V</suffix>
+</item>
+<item ptr="804fc8" bitlength="16" multiplier="0.000076293945">
+    <name>Knock Signal Spark Averaged</name>
+    <suffix>V</suffix>
+</item>
+<item ptr="804fca" bitlength="16" multiplier="0.000076293945">
+    <name>Knock Signal Time Averaged</name>
+    <suffix>V</suffix>
+</item>
+
+    <item sid="312" startbyte="0" bitlength="16" adder="2000">
+            <name>asc_spark_retarded_torque_output_scaled</name>
+    </item>
+    <item sid="312" startbyte="2" bitlength="16" adder="2000">
+            <name>cantx_asc_predicted_torque_output</name>
+    </item>
+    <item sid="312" startbyte="4" bitlength="16" adder="2000">
+            <name>cantx_torque_max</name>
+    </item>
+    <item sid="312" startbyte="6" bitlength="16" adder="2000">
+            <name>cantx_torque_min</name>
+    </item>
+    <item ptr="804df2" bitlength="16">
+        <name>NLTS Speed</name>
+    </item>
+    <item ptr="804df4" bitlength="16">
+        <name>NLTS Speed Filtered</name>
+    </item>
+    <item ptr="804df6" bitlength="16">
+        <name>NLTS Flags</name>
+    </item>
+    <item ptr="804d38" bitlength="8">
+        <name>Current Gear</name>
+    </item>
+    <item ptr="804d39" bitlength="8">
+        <name>Calculated Gear</name>
+    </item>
+    <item ptr="804df8" bitlength="8">
+        <name>NLTS Target Gear</name>
+    </item>
+    <item ptr="804df9" bitlength="8">
+        <name>NLTS State</name>
+    </item>
+    <item ptr="804dfa" bitlength="16" multiplier="3.90625" adder="0">
+        <name>NLTS Target RPM</name>
+    </item>
+    <item ptr="804dfe" bitlength="16" adder="2000">
+        <name>NLTS Torque Limit</name>
+    </item>
+    <item ptr="804e00" bitlength="16" adder="16384">
+        <name>NLTS Integral Torque Correction</name>
+    </item>
+    <item ptr="804e48" bitlength="16" multiplier="3.90625" adder="128000">
+        <name>NLTS RPM Error</name>
+    </item>
+    <item ptr="804cfc" bitlength="16" multiplier="3.90625" adder="0">
+        <name>Engine RPM</name>
+    </item>
+    <item ptr="804d00" bitlength="16" multiplier="3.90625" adder="0">
+        <name>Engine RPM Delta Negative</name>
+    </item>
+    <item ptr="8057bc" bitlength="16" >
+        <name>APPS</name>
+    </item>
+    <item ptr="804cab" bitlength="8" multiplier="0.019607843">
+        <name>TPS Main Voltage</name>
+        <suffix>V</suffix>
+    </item>
+    <item ptr="80585e" bitlength="16">
+        <name>Torque Request Flags</name>
+    </item>
+    <item ptr="804d4c" bitlength="16" multiplier="0.0030517578">
+        <name>Engine Load</name>
+        <suffix>%</suffix>
+    </item>
+    <item ptr="804da1" bitlength="8">
+        <name>Mode Index</name>
+    </item>
+    <item ptr="804df0" bitlength="16">
+        <name>Gear Ratio</name>
+        <suffix></suffix>
+    </item>
+
+<comment>
+	<item sid="002">
+                <name>002Heartbeat</name>
+                <comment>first byte alternates between 0-1, second is looping sequence</comment>
+	</item>
+        <item sid="300" startbyte="1" bitlength="1" startbit="6">
+                <name>ASC Use Spark Retard</name>
+        </item>
+        <item sid="300" startbyte="4" bitlength="1" startbit="5">
+                <name>ASC Low Torque Limit</name>
+        </item>
+        <item sid="300" startbyte="4" bitlength="1" startbit="6">
+                <name>ASC High Torque Limit</name>
+        </item>
+        <item sid="300" startbyte="4" bitlength="13" adder="2000">
+                <name>asc_commanded_torque</name>
+        </item>
+        <item sid="130" data0="0" startbyte="2" bitlength="16" type="signed" endian="little">
+            <name>130Data23D0</name>
+            <comment>different parameters are transmitted depending on data0:0,1,3</comment>
+        </item>
+        <item sid="130" data0="1" startbyte="2" bitlength="16" type="signed" endian="little">
+            <name>130Data23D1</name>
+            <comment>d7 checksum is d0-d6 xored</comment>
+        </item>
+        <item sid="130" data0="3" startbyte="2" bitlength="16" type="signed" endian="little">
+            <name>130Data23D3</name>
+            <comment>d7 checksum is d2-d6 summed</comment>
+        </item>
+        <item sid="130" startbyte="4" bitlength="16" type="signed" multiplier="0.1" endian="little">
+            <name>Yaw Rate</name>
+            <suffix>deg/s</suffix>
+        </item>
+        <item sid="270">
+                <name>Travel Sequence Message</name>
+        </item>
+        <item sid="270" startbyte="0" bitlength="16">
+                <name>Travel Sequence</name>
+        </item>
+        <item sid="210">
+                <name>Engine APPS</name>
+        </item>
+        <item sid="210" startbyte="2" bitlength="8" multiplier="0.4">
+                <name>Accelerator Position</name>
+        </item>
+        <item sid="212" startbyte="0" bitlength="16">
+                <name>Target Idle RPM</name>
+                <suffix>rpm</suffix>
+        </item>
+        <item sid="212" startbyte="4" bitlength="13" adder="2000">
+                <name>target_torque_output_scaled</name>
+        </item>
+        <item sid="212" startbyte="4" startbit="5" bitlength="3">
+                <name>Engine ASC Active Lamp</name>
+        </item>
+        <item sid="212">
+                <name>Engine IRPM,Torque</name>
+        </item>
+        <item sid="308">
+                <name>Engine To Dash RPM</name>
+        </item>
+        <item sid="308" startbyte="0" startbit="7" bitlength="1">
+                <name>Clutch Pedal</name>
+        </item>
+        <item sid="308" startbyte="1" bitlength="16">
+                <name>Engine RPM</name>
+                <suffix>rpm</suffix>
+        </item>
+        <item sid="312">
+                <name>Engine To ASC</name>
+        </item>
+        <item sid="312" startbyte="0" bitlength="16" adder="2000">
+                <name>asc_spark_retarded_torque_output_scaled</name>
+        </item>
+        <item sid="312" startbyte="2" bitlength="16" adder="2000">
+                <name>cantx_asc_predicted_torque_output</name>
+        </item>
+        <item sid="312" startbyte="4" bitlength="16" adder="2000">
+                <name>cantx_torque_max</name>
+        </item>
+        <item sid="312" startbyte="6" bitlength="16" adder="2000">
+                <name>cantx_torque_min</name>
+        </item>
+        <item sid="608">
+		<name>TX0 CANTEST or Temp</name>
+	</item>
+        <item sid="608" startbyte="0" bitlength="8" adder="40">
+                <name>Coolant Temp</name>
+                <suffix>degC</suffix>
+        </item>
+        <item sid="0c0">
+            <name>Steering wheel position sensor</name>
+        </item>
+        <item sid="0c0" startbyte="0" bitlength="16" type="signed" endian="little" multiplier="0.1">
+            <name>Steering wheel position</name>
+            <suffix>deg</suffix>
+        </item>
+        <item sid="208">
+                <name>ASC to Engine Supplementary data</name>
+	</item>
+	<item sid="200">
+		<name>ABS</name>
+                <comment>somewhere here should be parking brake switch, low fluid level switch and maybe master cylinder pressure</comment>
+	</item>
+        <item sid="200" startbyte="2" bitlength="16" multiplier="0.05375084">
+                <name>abs_speed_fl</name>
+                <suffix>km/h</suffix>
+        </item>
+        <item sid="200" startbyte="1" bitlength="2" startbit="0">
+                <name>Brake Pedal</name>
+        </item>
+        <item sid="200" startbyte="0" bitlength="1" startbit="1">
+                <name>Parking brake</name>
+        </item>
+        <item sid="200" startbyte="4" bitlength="16" multiplier="0.05375084">
+                <name>abs_speed_fr</name>
+        </item>
+        <item sid="200" startbyte="6" bitlength="16" multiplier="0.05375084">
+                <name>abs_speed_rear</name>
+        </item>
+	<item sid="443">
+		<name>A/C Unit</name>
+	</item>
+        <item sid="443" startbyte="1" bitlength="8">
+                <name>AC Pressure</name>
+        </item>
+        <item sid="443" startbyte="2" bitlength="8">
+                <name>AC Data2</name>
+        </item>
+        <item sid="1e1">
+                <name>SRS to engine</name>
+	</item>
+	<item sid="584"/>
+	<item sid="416"/>
+	<item sid="423">
+                <name>ETACS to all</name>
+                <comment>high beam, front fog, rear fog indicators for meter, turn signal</comment>
+	</item>
+	<item sid="412">
+                <name>Meter odometer/fuel etc?</name>
+	</item>
+        <item sid="412" startbyte="0" bitlength="16" multiplier="0.0015258789">
+                <name>Fuel Level</name>
+                <suffix>%</suffix>
+        </item>
+        <item sid="412" startbyte="2" bitlength="24">
+                <name>Meter Odometer</name>
+                <suffix>km</suffix>
+        </item>
+        <item sid="418" startbyte="2" bitlength="8">
+                <name>Dash Mode</name>
+                <suffix></suffix>
+        </item>
+        <item sid="2f1">
+		<name>EPS to Engine</name>
+	</item>
+        <item sid="2f1" startbyte="0" bitlength="8">
+            <name>EPS Current</name>
+        </item>
+	<item sid="536"/>
+	<item sid="408">
+                <name>Meter: Dash Brightness</name>
+	</item>
+	<item sid="7c0"/>
+	<item sid="101">
+		<name>Engine to Immo</name>
+	</item>
+	<item sid="111">
+		<name>Immo to Engine</name>
+	</item>
+        <comment>frame 0</comment>
+        <item ptr="804d4c" bitlength="16" multiplier="0.0030517578">
+            <name>Engine Load</name>
+            <suffix>%</suffix>
+        </item>
+        <item sid="418" startbyte="4" bitlength="16" multiplier="0.3125">
+            <name>Map Engine Load</name>
+            <suffix>%</suffix>
+        </item>
+        <comment>frame 1</comment>
+
+        <item ptr="804c75" bitlength="8" adder="40">
+            <name>IAT</name>
+            <suffix>deg</suffix>
+        </item>
+        <item ptr="80407b" bitlength="8" multiplier="0.39215686">
+            <name>Octane Level</name>
+            <suffix>%</suffix>
+        </item>
+        <item ptr="804c81" bitlength="8" multiplier="0.019607843">
+            <name>O2 Front Voltage</name>
+            <suffix>V</suffix>
+        </item>
+        <item ptr="804c85" bitlength="8" multiplier="0.019607843">
+            <name>O2 Rear Voltage</name>
+            <suffix>V</suffix>
+        </item>
+        <item ptr="804cab" bitlength="8" multiplier="0.019607843">
+            <name>TPS Main Voltage</name>
+            <suffix>V</suffix>
+        </item>
+        <item ptr="804da1" bitlength="8">
+            <name>Mode Index</name>
+        </item>
+        <item ptr="804e5d" bitlength="8" multiplier="0.78125">
+            <name>AFR Enrichment</name>
+            <suffix>%</suffix>
+        </item>
+        <comment>frame 2</comment>
+        <item ptr="8050b7" bitlength="8" multiplier="0.625" adder="-20">
+            <name>Boost Target Load</name>
+            <suffix>%</suffix>
+        </item>
+        <item ptr="8050b5" bitlength="8" multiplier="0.5">
+            <name>Wastegate Duty</name>
+            <suffix>%</suffix>
+        </item>
+        <item ptr="8050b3" bitlength="8" multiplier="0.5" adder="64">
+            <name>Wastegate Duty Correction</name>
+            <suffix>%</suffix>
+        </item>
+        <item ptr="804d26" bitlength="8">
+            <name>Launch Cut Cylinders</name>
+            <suffix></suffix>
+        </item>
+        <item ptr="804d23" bitlength="8">
+            <name>Launch Control Flags</name>
+            <suffix></suffix>
+        </item>
+        <item ptr="805836" bitlength="16">
+            <name>APPS Geared</name>
+            <suffix></suffix>
+        </item>
+        <frame3/>
+        <item ptr="805838" bitlength="16">
+            <name>APPS Limited</name>
+            <suffix></suffix>
+        </item>
+        <item ptr="804df0" bitlength="16">
+            <name>Gear Ratio</name>
+            <suffix></suffix>
+        </item>
+        <item ptr="804e02" bitlength="16">
+            <name>IPW Calculated</name>
+            <suffix></suffix>
+        </item>
+        <item ptr="804fbf" bitlength="8">
+            <name>Knock Sum</name>
+        </item>
+        <item ptr="80407c" bitlength="16" multiplier="0.000076293945">
+            <name>Knock Integrator Noise</name>
+            <suffix>V</suffix>
+        </item>
+        <item ptr="804fc5" bitlength="8" multiplier="0.01953125">
+            <name>Knock Signal</name>
+            <suffix>V</suffix>
+        </item>
+        <item ptr="804fc7" bitlength="8" multiplier="0.01953125">
+            <name>Knock Base</name>
+            <suffix>V</suffix>
+        </item>
+        <item ptr="804fc8" bitlength="16" multiplier="0.000076293945">
+            <name>Knock Signal Spark Averaged</name>
+            <suffix>V</suffix>
+        </item>
+        <item ptr="804fca" bitlength="16" multiplier="0.000076293945">
+            <name>Knock Signal Time Averaged</name>
+            <suffix>V</suffix>
+        </item>
+        <item ptr="804ff3" bitlength="8" multiplier="0.01953125">
+            <name>Knock Base Engine Noise vs RPM</name>
+            <suffix>V</suffix>
+        </item>
+        <item ptr="804d38" bitlength="8">
+            <name>Current Gear</name>
+        </item>
+        <item ptr="804d39" bitlength="8">
+            <name>Calculated Gear</name>
+        </item>
+        <item ptr="804d3e" bitlength="16">
+            <name>Gear Detector Gratio</name>
+        </item>
+        <item ptr="80506a" bitlength="16">
+            <name>Idle Stepper Value</name>
+        </item>
+        <item ptr="805044" bitlength="16">
+            <name>Idle Status Flags</name>
+        </item>
+        <item ptr="804092" bitlength="16">
+            <name>Idle Mode Flags</name>
+        </item>
+        </comment>
+</doc>
